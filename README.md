@@ -1,8 +1,8 @@
-###Palo Alto firewall Pack
+### Palo Alto firewall Pack
 Block threats on Palo Alto Networks firewalls
 
-#####Using the pack
+##### Using the pack
 
-#####Actions
+##### Actions
 
-#####Configuration
+##### Configuration
