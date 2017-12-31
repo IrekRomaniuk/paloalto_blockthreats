@@ -1,4 +1,4 @@
 ---
     trigger: "paloalto_blockthreats.threat"
-    payload:
+    body:
       source: "1.1.1.1"
