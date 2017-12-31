@@ -1,0 +1,15 @@
+---
+    name: "dag_update_rule"
+    pack: "paloalto_blockthreats"
+    description: "update DAG: dynamic address group"
+    enabled: true
+
+    trigger:
+        type: "core.st2.webhook"
+        parameters:
+            url: "blockthreats"
+
+    action:
+        ref: "core.local"
+        parameters:
+            cmd: "echo \"{{api_key}}\" >> ~/st2.blockthreats.out"
