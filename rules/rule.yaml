@@ -1,0 +1,15 @@
+---
+    name: "test_rule"
+    pack: "paloalto_blockthreats"
+    description: "Test rule dumping webhook payload to a file."
+    enabled: true
+
+    trigger:
+        type: "core.st2.webhook"
+        parameters:
+            url: "blockthreats"
+
+    action:
+        ref: "core.local"
+        parameters:
+            cmd: "echo \"{{trigger.body}}\" >> ~/st2.blockthreats.out"
