@@ -1,7 +1,7 @@
 ---
     name: "test_rule"
     pack: "paloalto_blockthreats"
-    description: "Test rule dumping webhook payload to a file."
+    description: "Test rule dumping http webhook payload to a file."
     enabled: true
 
     trigger:
