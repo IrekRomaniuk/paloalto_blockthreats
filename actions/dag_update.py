@@ -22,15 +22,17 @@ class UpdateDAG(Action):
         </payload>
         </uid-message>
         """
-        print(ip, self.config['api_key'], self.config['fws_ips'], self.config['tag'])                
+        _tag = self.config['tag']
+        _key = self.config['api_key']
+        print(_key, self.config['fws_ips'], _tag)                
         xml = Template(_uid_message)
         for firewall in self.config['fws_ips'].split(","):
             print(firewall)                
             url = "https://" + firewall + "/api"
             try:
                 response = requests.post(url + "/?type=user-id&cmd={}&key={}".
-                    format(xml.substitute(ip='"{}"'.format(ip), tag=tag), key),verify=False,timeout=5)
-                print("{}\nfirewall {} ip {} tag {}".format(response.text, firewall, ip , tag))                                 
+                    format(xml.substitute(ip='"{}"'.format(ip), tag=_tag), _key),verify=False,timeout=5)
+                print("{}\nfirewall {} ip {} tag {}".format(response.text, firewall, ip , _tag))                                 
             except requests.exceptions.ConnectionError:
                 print("Post {}: ConnectionError".format(firewall))
                 continue
