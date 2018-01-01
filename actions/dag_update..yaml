@@ -5,7 +5,7 @@ description: "update DAG: dynamic address group"
 enabled: true
 entry_point: "dag_update.py"
 parameters:
-    source:
+    ip:
         type: "string"
         description: "Source address"
         required: false
