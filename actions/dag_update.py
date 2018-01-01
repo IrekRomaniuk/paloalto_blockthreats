@@ -1,4 +1,4 @@
-import sys, requests, xmltodict, json
+import sys, requests, xmltodict, json, urllib3
 from string import Template
 
 from st2actions.runners.pythonrunner import Action
@@ -26,6 +26,7 @@ class UpdateDAG(Action):
         _key = self.config['api_key']
         print(_key, self.config['fws_ips'], _tag)                
         xml = Template(_uid_message)
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         for firewall in self.config['fws_ips'].split(","):
             print(firewall)                
             url = "https://" + firewall + "/api"
