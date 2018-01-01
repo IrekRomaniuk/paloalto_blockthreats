@@ -2,7 +2,7 @@ import sys
 
 from st2actions.runners.pythonrunner import Action
 
-class MyEchoAction(Action):
+class UpdateDAG(Action):
     def run(self, source):
         print(source,self.config)
 

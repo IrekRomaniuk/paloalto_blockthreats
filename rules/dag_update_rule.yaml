@@ -10,6 +10,6 @@
             url: "blockthreats"
 
     action:
-        ref: "core.local"
+        ref: "dag_update"
         parameters:
-            cmd: "echo \"{{config.api_key}}\" >> ~/st2.blockthreats.out"
+            source: "trigger.body.source"
