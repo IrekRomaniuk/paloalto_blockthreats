@@ -1,5 +1,5 @@
 ---
-    name: "dag_update_rule"
+    name: "dag_update"
     pack: "paloalto_blockthreats"
     description: "update DAG: dynamic address group"
     enabled: true
@@ -12,4 +12,4 @@
     action:
         ref: "core.local"
         parameters:
-            cmd: "echo \"{{api_key}}\" >> ~/st2.blockthreats.out"
+            cmd: "echo \"{{config.api_key}}\" >> ~/st2.blockthreats.out"
