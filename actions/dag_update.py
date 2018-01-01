@@ -3,15 +3,11 @@ import sys
 from st2actions.runners.pythonrunner import Action
 
 class UpdateDAG(Action):
-    def run(self, source):
-        print(source, self.config['api_key'], self.config['fws_ips']) 
-        if source == '1.1.1.1':
-            return (True, source)
-        return (False, source)
+    def run(self, ip):
+        print(ip, self.config['api_key'], self.config['fws_ips'], self.config['tag'])                
         
         for firewall in self.config['fws_ips'].split(","):
-            print(firewall)
-            """    
+            print(firewall)                
             url = "https://" + firewall + "/api"
                 try:
                     response = requests.post(url + "/?type=user-id&cmd={}&key={}".
@@ -27,7 +23,7 @@ class UpdateDAG(Action):
                     result['"{}"'.format(firewall)] = "{} : {} {}".format(doc['response']['@status'], 
                         doc['response']['msg']['line']['uid-response']['payload']['register']['entry']['@ip'],
                         doc['response']['msg']['line']['uid-response']['payload']['register']['entry']['@message'])                       
-        print("result {}".format(result))                
-            """
+        print("result {}".format(result))   
+        #return (True, result)             
 
     
