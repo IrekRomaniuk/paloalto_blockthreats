@@ -9,6 +9,12 @@ In order to obtain *Palo Alto API key*, substitue firewall with IP address of fi
 curl -kgX GET 'https://firewall/api/?type=keygen&user=admin&password=password'
 ```
 
+Example configuration:
+```
+---
+  api_key: "palo_alto_api_key"
+  tag: "st2"
+```
 ## Using the pack
 
 Configure http webhook on PAN following  [PAN-OS 8.0 documentation](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-server-profiles-http)
