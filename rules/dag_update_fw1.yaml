@@ -10,7 +10,7 @@
             url: "blockthreats"
     
     criteria:                              # optional
-        trigger.trigger.body.severity:
+        trigger.body.severity:
             type: "regex"
             pattern : "critical"       
 
