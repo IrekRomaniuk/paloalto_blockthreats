@@ -28,7 +28,7 @@ class UpdateDAG(Action):
         xml = Template(_uid_message)
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         for firewall in self.config['fws_ips'].split(","):
-            # print(firewall)                
+            print(firewall)                
             url = "https://" + firewall + "/api"
             try:
                 response = requests.post(url + "/?type=user-id&cmd={}&key={}".
