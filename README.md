@@ -1,5 +1,4 @@
 # Palo Alto firewall Pack
-___
 
 Block threats on Palo Alto Networks (PAN) firewalls. Pack is using PAN HTTP server profiles (webhooks) which are available in PAN-OS version 8+
 ## Configuration
@@ -12,7 +11,7 @@ curl -kgX GET 'https://firewall/api/?type=keygen&user=admin&password=password'
 
 ## Using the pack
 
-Configure http webhook na PAN following  [PAN-OS 8.0 documentation](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-server-profiles-http)
+Configure http webhook on PAN following  [PAN-OS 8.0 documentation](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-server-profiles-http)
 
 ![Snapshot of PAN webhook configuration - payload format](https://github.com/IrekRomaniuk/paloalto_blockthreats/blob/master/pan-webhook.PNG)
 
