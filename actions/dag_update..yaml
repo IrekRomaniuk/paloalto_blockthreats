@@ -8,7 +8,12 @@ parameters:
     ip:
         type: "string"
         description: "Source address"
-        required: false
+        required: true
         position: 0
+    firewall:
+        type: "string"
+        description: "Firewall address"
+        required: true
+        position: 0    
   
     

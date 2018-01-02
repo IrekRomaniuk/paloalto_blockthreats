@@ -1,0 +1,16 @@
+---
+    name: "dag_update_fw2"
+    pack: "paloalto_blockthreats"
+    description: "update DAG: dynamic address group"
+    enabled: true
+
+    trigger:
+        type: "core.st2.webhook"
+        parameters:
+            url: "blockthreats"
+
+    action:
+        ref: "dag_update"
+        parameters:
+            ip: "trigger.body.source"
+            firewall: "3.3.3.3"

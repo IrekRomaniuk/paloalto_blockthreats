@@ -1,5 +1,5 @@
 ---
-    name: "dag_update"
+    name: "dag_update_fw1"
     pack: "paloalto_blockthreats"
     description: "update DAG: dynamic address group"
     enabled: true
@@ -13,3 +13,4 @@
         ref: "dag_update"
         parameters:
             ip: "trigger.body.source"
+            firewall: "192.168.3.101"
