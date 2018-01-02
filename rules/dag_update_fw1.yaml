@@ -8,6 +8,11 @@
         type: "core.st2.webhook"
         parameters:
             url: "blockthreats"
+    
+    criteria:                              # optional
+        trigger.trigger.body.severity:
+            type: "regex"
+            pattern : "critical"       
 
     action:
         ref: "paloalto_blockthreats.dag_update"
