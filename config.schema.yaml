@@ -3,3 +3,7 @@
     description: "Palo Alto API key"
     type: "string"
     required: true
+  tag:
+    description: "DAG tag"
+    type: "string"
+    required: true  
