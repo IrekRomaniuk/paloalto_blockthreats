@@ -33,9 +33,9 @@ class UpdateDAG(Action):
             try:
                 response = requests.post(url + "/?type=user-id&cmd={}&key={}".
                     format(xml.substitute(ip='"{}"'.format(ip), tag=_tag), _key),verify=False,timeout=5)
-                print("{}\nfirewall {} ip {} tag {}".format(response.text, firewall, ip , _tag))                                 
+                # print("{}\nfirewall {} ip {} tag {}".format(response.text, firewall, ip , _tag))                                 
             except requests.exceptions.ConnectionError:
-                print("Post {}: ConnectionError".format(firewall))
+                # print("Post {}: ConnectionError".format(firewall))
                 continue
             doc = json.loads(json.dumps(xmltodict.parse(response.text)))                
             if 'success' in doc['response']['@status']  :
