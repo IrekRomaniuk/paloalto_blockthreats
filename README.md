@@ -1,9 +1,9 @@
 # Palo Alto firewall Pack
 
-Block threats on Palo Alto Networks (PAN) firewalls. Pack is using **PAN HTTP server profiles** (webhooks) which are available in PAN-OS version 8+
+Block threats on **Palo Alto Networks (_PAN_)** firewalls. Pack is using PAN **HTTP server profiles** (webhooks) which are available in PAN-OS version 8+
 ## Configuration
 
-Copy the example configuration in **paloalto.yaml.example** to /opt/stackstorm/configs/paloalto.yaml and edit as required.
+Copy the example configuration in **paloalto.yaml.example** to */opt/stackstorm/configs/paloalto.yaml* and edit as required.
 In order to obtain *Palo Alto API key*, substitue firewall with IP address of firewall , put the username and passowrd , then run the command below.
 ```
 curl -kgX GET 'https://firewall/api/?type=keygen&user=admin&password=password'
