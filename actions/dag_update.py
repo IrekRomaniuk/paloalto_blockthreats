@@ -44,7 +44,7 @@ class UpdateDAG(Action):
                 _result['"{}"'.format(firewall)] = "{} : {} {}".format(doc['response']['@status'], 
                     doc['response']['msg']['line']['uid-response']['payload']['register']['entry']['@ip'],
                     doc['response']['msg']['line']['uid-response']['payload']['register']['entry']['@message'])                       
-                print(doc['response'])
+                # print(doc['response'])
         print("result {}".format(_result))   
         #return (True, _result)             
 
