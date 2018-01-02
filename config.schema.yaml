@@ -4,6 +4,6 @@
     type: "string"
     required: true
   tag:
-    description: "DAG tag"
+    description: "Palo Alto object tag"
     type: "string"
     required: true  
