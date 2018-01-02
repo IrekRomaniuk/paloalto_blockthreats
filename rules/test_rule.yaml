@@ -2,7 +2,7 @@
     name: "test_rule"
     pack: "paloalto_blockthreats"
     description: "Test rule dumping http webhook payload to a file."
-    enabled: true
+    enabled: false
 
     trigger:
         type: "core.st2.webhook"
