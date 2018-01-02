@@ -32,7 +32,7 @@ class UpdateDAG(Action):
             url = "https://" + firewall + "/api"
             try:
                 response = requests.post(url + "/?type=user-id&cmd={}&key={}".
-                    format(xml.substitute(ip='"{}"'.format(ip), tag=_tag), _key),verify=False,timeout=5)
+                    format(xml.substitute(ip='"{}"'.format(firewall), tag=_tag), _key),verify=False,timeout=5)
                 # print("{}\nfirewall {} ip {} tag {}".format(response.text, firewall, ip , _tag))                                 
             except requests.exceptions.ConnectionError:
                 # print("Post {}: ConnectionError".format(firewall))
