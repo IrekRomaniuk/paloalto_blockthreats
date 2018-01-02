@@ -24,7 +24,7 @@ class UpdateDAG(Action):
         """
         _tag = self.config['tag']
         _key = self.config['api_key']
-        print(_key, self.config['fws_ips'], _tag)                
+        # print(_key, self.config['fws_ips'], _tag)                
         xml = Template(_uid_message)
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         for firewall in self.config['fws_ips'].split(","):
