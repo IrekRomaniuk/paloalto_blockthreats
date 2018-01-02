@@ -1,4 +1,3 @@
 ---
   api_key: "palo_alto_api_key"
-  # fws_ips: "IP addresses seperated by commans"
   tag: "tag name"
