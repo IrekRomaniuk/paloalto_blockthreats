@@ -12,5 +12,5 @@
     action:
         ref: "paloalto_blockthreats.dag_update"
         parameters:
-            ip: "trigger.body.source"
+            ip: "{{trigger.body.source}}"
             firewall: "192.168.3.101"
