@@ -38,7 +38,7 @@ class UpdateDAG(Action):
                 # print("Post {}: ConnectionError".format(firewall))
                 continue
             doc = json.loads(json.dumps(xmltodict.parse(response.text)))                
-            if 'success' in doc['response']['@status']  :
+            if 'success' in doc['response']['@status']:
                 _result['"{}"'.format(firewall)] = 'success'
             else:
                 _result['"{}"'.format(firewall)] = "{} : {} {}".format(doc['response']['@status'], 
@@ -46,6 +46,6 @@ class UpdateDAG(Action):
                     doc['response']['msg']['line']['uid-response']['payload']['register']['entry']['@message'])                       
                 # print(doc['response'])
         print("result {}".format(_result))   
-        #return (True, _result)             
+        # return (True, _result)             
 
     
