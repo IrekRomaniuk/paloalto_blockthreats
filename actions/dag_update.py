@@ -45,6 +45,6 @@ class UpdateDAG(Action):
                     doc['response']['msg']['line']['uid-response']['payload']['register']['entry']['@ip'],
                     doc['response']['msg']['line']['uid-response']['payload']['register']['entry']['@message'])                       
         print("result {}".format(_result))   
-        #return (True, result)             
+        #return (True, _result)             
 
     
