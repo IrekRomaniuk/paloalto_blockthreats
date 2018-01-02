@@ -21,7 +21,7 @@ Configure http webhook on PAN following  [PAN-OS 8.0 documentation](https://www.
 
 ![Snapshot of PAN webhook configuration - payload format](https://github.com/IrekRomaniuk/paloalto_blockthreats/blob/master/pan-webhook.PNG)
 
-Name of st2 server has to match st2 certificate imported to PAN. To get *st2 API key*, run the command below
+Name of _st2 server_ has to match st2 certificate imported to PAN. To get *st2 API key*, run the command below
  ```
 st2 apikey create -k -m '{"used_by": "PAN"}'
  ```
