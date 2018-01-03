@@ -1,13 +1,13 @@
 ---
     name: "dag_update_fw2"
-    pack: "paloalto_blockthreats"
+    pack: "paloalto"
     description: "update DAG for firewall 3.3.3.3 - no criteria"
     enabled: true
 
     trigger:
         type: "core.st2.webhook"
         parameters:
-            url: "blockthreats"
+            url: "paloalto"
 
     action:
         ref: "paloalto_blockthreats.dag_update"
