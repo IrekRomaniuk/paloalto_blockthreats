@@ -1,5 +1,6 @@
 from st2reactor.sensor.base import PollingSensor
 import requests
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 class PanCpuMonitorSensor(PollingSensor):
     """
@@ -34,6 +35,7 @@ class PanCpuMonitorSensor(PollingSensor):
         ips = self._ips.split(',')
         for ip in ips:
             self._logger.debug('url: '.format('https://' + ip + self._url + self._key))
+            requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             response = requests.get('https://' + ip + self._url + self._key, verify=False)
             self._logger.debug('response {}'.format(response.text))
             payload[ip]=response.status_code
