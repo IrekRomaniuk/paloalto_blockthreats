@@ -32,7 +32,7 @@ class PanCpuMonitorSensor(PollingSensor):
     def poll(self):        
         self._logger.debug('#### PanCpuMonitorSensor dispatching trigger...')
         payload = {}
-        ips = self._ips.split(',')
+        ips = [str(ip) for ip in self._ips.split(',')]
         self._logger.debug('#### Addresses: {}'.format(ips))
         for ip in ips:
             # self._logger.debug('url: {}'.format('https://' + ip + self._url + self._key))
