@@ -1,6 +1,6 @@
 ---
     name: "test_rule"
-    pack: "paloalto"
+    pack: "pan"
     description: "Test rule dumping http webhook payload to a file"
     enabled: false
 

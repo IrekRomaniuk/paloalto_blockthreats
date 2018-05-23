@@ -1,0 +1,11 @@
+---
+class_name: "PanCpuMonitorSensor"
+entry_point: "cpumonitorensor.py"
+description: "Sensor polling Paloalto cpu"
+poll_interval: 60
+trigger_types:
+  -
+    name: "cpu_monitor"
+    description: "monitor PAN cpu"
+    payload_schema:
+      type: "object" 

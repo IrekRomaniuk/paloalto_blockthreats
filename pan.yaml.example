@@ -1,0 +1,5 @@
+---
+  api_key: "palo_alto_api_key"
+  tag: "tag name"
+  ips: "1.1.1.1,2.2.2.2"
+  url: "/esp/restapi.esp?type=op&cmd=<show><running><resource-monitor><seurce-monitor></running></show>&key="

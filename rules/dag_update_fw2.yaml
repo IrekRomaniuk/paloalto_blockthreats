@@ -1,6 +1,6 @@
 ---
     name: "dag_update_fw2"
-    pack: "paloalto"
+    pack: "pan"
     description: "update DAG for firewall 3.3.3.3 - no criteria"
     enabled: true
 
