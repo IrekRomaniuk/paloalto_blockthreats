@@ -30,11 +30,12 @@ class PanCpuMonitorSensor(PollingSensor):
 
 
     def poll(self):        
-        self._logger.debug('PanCpuMonitorSensor dispatching trigger...')
+        self._logger.debug('#### PanCpuMonitorSensor dispatching trigger...')
         payload = {}
         ips = self._ips.split(',')
+        self._logger.debug('ips: {}'.format(ips))
         for ip in ips:
-            self._logger.debug('url: '.format('https://' + ip + self._url + self._key))
+            self._logger.debug('url: {}'.format('https://' + ip + self._url + self._key))
             requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             response = requests.get('https://' + ip + self._url + self._key, verify=False)
             self._logger.debug('response {}'.format(response.text))
