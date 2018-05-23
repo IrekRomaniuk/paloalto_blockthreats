@@ -5,7 +5,7 @@ description: "Sensor polling Paloalto cpu"
 poll_interval: 60
 trigger_types:
   -
-    name: "cpu_monitor"
+    name: "pan.cpu_mon_trigger"
     description: "monitor PAN cpu"
     payload_schema:
       type: "object" 
