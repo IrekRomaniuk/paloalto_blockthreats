@@ -1,6 +1,5 @@
 from st2reactor.sensor.base import PollingSensor
-from influxdb import InfluxDBClient
-import ast, requests
+import requests
 
 class PanCpuMonitorSensor(PollingSensor):
     """
@@ -37,7 +36,7 @@ class PanCpuMonitorSensor(PollingSensor):
             self._logger.debug('response {}'.format(response.text))
             payload[ip]=response.status_code
         #requests.get("https://hchk.io/")
-        self.sensor_service.dispatch(trigger="pan.cpu_monitor", payload=payload)     
+        self.sensor_service.dispatch(trigger="pan.cpu_mon_trigger", payload=payload)     
 
     def cleanup(self):
         pass
