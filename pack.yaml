@@ -1,6 +1,6 @@
 ---
 ref: pan
-name: paloalto
+name: paloalto networks
 description: Block threats and monitor Palo Alto Networks firewalls
 keywords:
     - firewalls
