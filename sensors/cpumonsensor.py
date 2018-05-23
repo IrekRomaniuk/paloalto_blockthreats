@@ -31,8 +31,8 @@ class PanCpuMonitorSensor(PollingSensor):
     def poll(self):        
         self._logger.debug('PanCpuMonitorSensor dispatching trigger...')
         payload = {}
-        for ip in _ips:
-            response = requests.get('https://'+ip+_url_+_key, verify=False)
+        for ip in self._ips:
+            response = requests.get('https://' + ip + self._url + self._key, verify=False)
             self._logger.debug('response {}'.format(response.text))
             payload[ip]=response.status_code
         #requests.get("https://hchk.io/")
