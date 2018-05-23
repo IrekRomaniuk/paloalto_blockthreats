@@ -7,3 +7,11 @@
     description: "Palo Alto object tag"
     type: "string"
     required: true  
+  ips:
+    description: "IP addresses"
+    type: "string"
+    required: true
+  url:
+    description: "API Urls"
+    type: "string"
+    required: true
