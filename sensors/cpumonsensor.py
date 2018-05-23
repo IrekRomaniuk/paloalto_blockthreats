@@ -31,7 +31,9 @@ class PanCpuMonitorSensor(PollingSensor):
     def poll(self):        
         self._logger.debug('PanCpuMonitorSensor dispatching trigger...')
         payload = {}
-        for ip in self._ips:
+        ips = self._ips.split(',')
+        for ip in ips:
+            self._logger.debug('url: '.format('https://' + ip + self._url + self._key))
             response = requests.get('https://' + ip + self._url + self._key, verify=False)
             self._logger.debug('response {}'.format(response.text))
             payload[ip]=response.status_code
