@@ -33,12 +33,12 @@ class PanCpuMonitorSensor(PollingSensor):
         self._logger.debug('#### PanCpuMonitorSensor dispatching trigger...')
         payload = {}
         ips = self._ips.split(',')
-        self._logger.debug('ips: {}'.format(ips))
+        self._logger.debug('#### Addresses: {}'.format(ips))
         for ip in ips:
-            self._logger.debug('url: {}'.format('https://' + ip + self._url + self._key))
+            # self._logger.debug('url: {}'.format('https://' + ip + self._url + self._key))
             requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             response = requests.get('https://' + ip + self._url + self._key, verify=False)
-            self._logger.debug('response {}'.format(response.text))
+            # self._logger.debug('response {}'.format(response.text))
             payload[ip]=response.status_code
         #requests.get("https://hchk.io/")
         self.sensor_service.dispatch(trigger="pan.cpu_mon_trigger", payload=payload)     
