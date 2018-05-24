@@ -40,9 +40,10 @@ class PanCpuMonitorSensor(PollingSensor):
         payload['fields']={}
         ips = [str(ip) for ip in self._ips.split(',')]
         # ['1.1.1.1:pan1:DC1:3', '2.2.2.2:pan2:DC2:3', '3.3.3.3:pan', 'LAB:1']
-        self._logger.debug('#### Addresses: {}'.format(ips))
+        self._logger.debug('#### Tags: {}'.format(ips))
         for ip in ips:
             ip = [str(elem) for elem in ip.split(':')]
+            self._logger.debug('#### Tag: {}'.format(ip))
             # ['1.1.1.1', 'pan1', 'DC1', '3']
             payload['tags']= {"site": ip[2],"firewall": ip[1],"dsp": 99,"coreid": 99}
             # self._logger.debug('url: {}'.format('https://' + ip + self._url + self._key))
