@@ -1,0 +1,12 @@
+---
+name: "influx_write"
+runner_type: "python-script"
+description: "Run a query on InfluxDB"
+enabled: false
+entry_point: "influx_write.py"
+parameters:    
+    trigger:
+        type: "string"
+        description: "cpu values"
+        required: true
+        position: 0     

@@ -15,7 +15,7 @@
             pattern : "critical"       
 
     action:
-        ref: "paloalto.dag_update"
+        ref: "pan.dag_update"
         parameters:
             ip: "{{trigger.body.source}}"
             firewall: "192.168.3.101"

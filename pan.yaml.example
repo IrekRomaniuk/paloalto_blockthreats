@@ -3,3 +3,7 @@
   tag: "tag name"
   ips: "1.1.1.1,2.2.2.2"
   url: "/esp/restapi.esp?type=op&cmd=<show><running><resource-monitor><second></second></resource-monitor></running></show>&key="
+  base_url: "3.3.3.3:8086"
+  username: "firewall"    
+  password: "password"  
+  db: "firewalls"

@@ -1,0 +1,15 @@
+---
+    name: "cpu_to_influx"
+    pack: "pan"
+    description: "pull cpu from PAN and write to Influxdb"
+    enabled: true
+
+    trigger:
+        type: "pan.cpu_mon_trigger"
+        parameters:
+            url: "paloalto"     
+
+    action:
+        ref: "pan.influx_write"
+        parameters:
+            trigger: "{{trigger}}"
