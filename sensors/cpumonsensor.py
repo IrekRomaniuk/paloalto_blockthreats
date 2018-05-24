@@ -13,7 +13,7 @@ class PanCpuMonitorSensor(PollingSensor):
           config.yaml in the pack.
     * self._poll_interval
         - indicates the interval between two successive poll() calls.
-    TESTING:
+    TESTING:  
     curl -k "https://1.1.1.1/esp/restapi.esp?type=op&cmd=<show><running><resource-monitor><second></second></resource-monitor></running></show>&key="  
     """
     def __init__(self, sensor_service, config, poll_interval): #sensor_service, config, poll_interval, 
@@ -26,7 +26,8 @@ class PanCpuMonitorSensor(PollingSensor):
     def setup(self):
         self._key = self._config['api_key'] # or None
         self._url = self._config['url']
-        self._ips = self._config['ips']          
+        self._ips = self._config['ips'] 
+        self._dps= ['dp0','dp1','dp2']         
 
 
     def poll(self):        
@@ -41,7 +42,7 @@ class PanCpuMonitorSensor(PollingSensor):
             response = requests.get('https://' + ip + self._url + self._key, verify=False)
             if request.status_code == 200:
                 data = xmltodict.parse(response)
-                for dp in ['dp0','dp1','dp2']:
+                for dp in self._dps:
                     cpu=data['response']['result']['resource-monitor']['data-processors'][dp]['second']['cpu-load-average']['entry']
                     for i in  range(0,len(cpu)):
                         payload[ip][dp+':'+cpu[i]['coreid']]=max([int(value) for value in cpu[i]['value'].split(',')]
