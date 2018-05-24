@@ -8,4 +8,4 @@ trigger_types:
     name: "cpu_mon_trigger"
     description: "monitor PAN cpu"
     payload_schema:
-      type: "object" 
+      type: "string" 
