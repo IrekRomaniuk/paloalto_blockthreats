@@ -59,7 +59,7 @@ class PanCpuMonitorSensor(PollingSensor):
                         payload['tags']['dsp']=dp
                         payload['tags']['coreid']=i
                         payload['fields'][self._val]=max([int(value) for value in cpu[i]['value'].split(',')])
-                        points.add[payload]
+                        points.apend[payload]
                                                 
         self.sensor_service.dispatch(trigger="pan.cpu_mon_trigger", payload=points)                
         #requests.get("https://hchk.io/")
