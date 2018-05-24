@@ -6,7 +6,7 @@ enabled: true
 entry_point: "influx_write.py"
 parameters:    
     payload:
-        type: "string"
+        type: "object"
         description: "cpu values"
         required: true
         position: 0     
