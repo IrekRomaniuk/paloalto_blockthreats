@@ -36,17 +36,19 @@ class PanCpuMonitorSensor(PollingSensor):
     def poll(self):        
         self._logger.debug('#### PanCpuMonitorSensor dispatching trigger...')
         payload = {}
-        points = []
-        payload['measurement']=self._mes
-        payload['fields']={}
+        
         ips = [str(ip) for ip in self._ips.split(',')]
         # ['1.1.1.1:pan1:DC1:3', '2.2.2.2:pan2:DC2:3', '3.3.3.3:pan', 'LAB:1']
         self._logger.debug('#### Tags: {}'.format(ips))
         for ip in ips:
+            points={}
+            payalod[ip]=[]
+            points['measurement']=self._mes
+            points['fields']={}
             ip = [str(elem) for elem in ip.split(':')]
             self._logger.debug('#### Tag: {}'.format(ip))
             # ['1.1.1.1', 'pan1', 'DC1', '3']
-            payload['tags']= {"site": ip[2],"firewall": ip[1],"dsp": 99,"coreid": 99}
+            points['tags']= {"site": ip[2],"firewall": ip[1],"dsp": 99,"coreid": 99}
             # self._logger.debug('url: {}'.format('https://' + ip + self._url + self._key))
             requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             response = requests.get('https://' + ip[0] + self._url + self._key, verify=False)
@@ -56,13 +58,13 @@ class PanCpuMonitorSensor(PollingSensor):
                     cpu=data['response']['result']['resource-monitor']['data-processors'][dp]['second']['cpu-load-average']['entry']
                     for i in  range(0,len(cpu)):
                         #payload[ip][dp+':'+cpu[i]['coreid']]=max([int(value) for value in cpu[i]['value'].split(',')])
-                        payload['tags']['dsp']=dp
-                        payload['tags']['coreid']=i
-                        payload['fields'][self._val]=max([int(value) for value in cpu[i]['value'].split(',')])
+                        points['tags']['dsp']=dp
+                        points['tags']['coreid']=i
+                        points['fields'][self._val]=max([int(value) for value in cpu[i]['value'].split(',')])
                         self._logger.debug('#### Payload: {}'.format(payload))
-                        points.append(payload)              
-            payload=','.join(str(v) for v in points)  
-            self._logger.debug('#### Dispatching payload of type {} with number of {} points'.format(type(payload),len(points)))                               
+                        payload[ip].append(points)              
+             
+            self._logger.debug('#### Dispatching payload of type {} with number of {} points'.format(type(payload),len(payload[ip])))                               
             self.sensor_service.dispatch(trigger="pan.cpu_mon_trigger", payload=payload)               
         #requests.get("https://hchk.io/")
              
