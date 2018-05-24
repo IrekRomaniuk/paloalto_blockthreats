@@ -64,7 +64,7 @@ class PanCpuMonitorSensor(PollingSensor):
                         self._logger.debug('#### Point: {}'.format(points))
                         payload[ip[0]].append(points)              
              
-            self._logger.debug('#### Dispatching payload of type {} with number of {} points'.format(type(payload),len(payload[ip])))                               
+            self._logger.debug('#### Dispatching payload of type {} with number of {} points'.format(type(payload),len(payload[ip[0]])))                               
             self.sensor_service.dispatch(trigger="pan.cpu_mon_trigger", payload=payload)               
         #requests.get("https://hchk.io/")
              
