@@ -44,7 +44,7 @@ class PanCpuMonitorSensor(PollingSensor):
         for ip in ips:
             ip = [str(elem) for elem in ip.split(':')]
             # ['1.1.1.1', 'pan1', 'DC1', '3']
-            payload['tags']=: {"site": ip[2],"firewall": ip[1],"dsp": 99,"coreid": 99}
+            payload['tags']= {"site": ip[2],"firewall": ip[1],"dsp": 99,"coreid": 99}
             # self._logger.debug('url: {}'.format('https://' + ip + self._url + self._key))
             requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             response = requests.get('https://' + ip[0] + self._url + self._key, verify=False)
