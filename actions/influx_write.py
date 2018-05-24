@@ -13,4 +13,4 @@ class influx_write(Action):
         client = InfluxDBClient(_base_url, _port, _user, _pass, _db)
         print(_db,_user,_pass,_base_url, _port)
         client.close()
-    return payload
+        return payload
