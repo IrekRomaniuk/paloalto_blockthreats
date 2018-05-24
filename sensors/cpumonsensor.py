@@ -47,9 +47,10 @@ class PanCpuMonitorSensor(PollingSensor):
                     cpu=data['response']['result']['resource-monitor']['data-processors'][dp]['second']['cpu-load-average']['entry']
                     for i in  range(0,len(cpu)):
                         payload[ip][dp+':'+cpu[i]['coreid']]=max([int(value) for value in cpu[i]['value'].split(',')])
+            self.sensor_service.dispatch(trigger="pan.cpu_mon_trigger", payload=payload)            
                         
         #requests.get("https://hchk.io/")
-        self.sensor_service.dispatch(trigger="pan.cpu_mon_trigger", payload=payload)     
+             
 
     def cleanup(self):
         pass
