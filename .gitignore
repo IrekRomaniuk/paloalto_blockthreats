@@ -1,3 +1,4 @@
 ROADMAP.md
 *.sh
-.vscode\
+.vscode/
+test/
