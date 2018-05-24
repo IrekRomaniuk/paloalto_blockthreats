@@ -1,5 +1,6 @@
 from st2reactor.sensor.base import PollingSensor
 import requests
+import xmltodict
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 class PanCpuMonitorSensor(PollingSensor):
