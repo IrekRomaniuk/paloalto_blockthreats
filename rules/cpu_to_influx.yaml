@@ -5,9 +5,7 @@
     enabled: true
 
     trigger:
-        type: "pan.cpu_mon_trigger"
-        parameters:
-            url: "paloalto"     
+        type: "pan.cpu_mon_trigger"     
 
     action:
         ref: "pan.influx_write"
