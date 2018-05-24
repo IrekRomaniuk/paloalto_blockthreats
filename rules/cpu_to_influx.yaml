@@ -3,10 +3,8 @@
     pack: "pan"
     description: "pull cpu from PAN and write to Influxdb"
     enabled: true
-
     trigger:
         type: "pan.cpu_mon_trigger"     
-
     action:
         ref: "pan.influx_write"
         parameters:
