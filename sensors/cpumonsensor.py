@@ -14,7 +14,7 @@ class PanCpuMonitorSensor(PollingSensor):
     * self._poll_interval
         - indicates the interval between two successive poll() calls.
     TESTING:
-    curl -k "https://1.1.1.1/esp/restapi.esp?type=op&cmd=<show><running><resource-monitor><seurce-monitor></running></show>&key="    
+    curl -k "https://1.1.1.1/esp/restapi.esp?type=op&cmd=<show><running><resource-monitor><second></second></resource-monitor></running></show>&key="  
     """
     def __init__(self, sensor_service, config, poll_interval): #sensor_service, config, poll_interval, 
         super(PanCpuMonitorSensor, self).__init__(sensor_service=sensor_service,  
