@@ -12,4 +12,4 @@
     action:
         ref: "pan.influx_write"
         parameters:
-            trigger: "{{trigger}}"
+            payload: "{{trigger.payload}}"
