@@ -56,7 +56,7 @@ class PanCpuMonitorSensor(PollingSensor):
                 data = xmltodict.parse(response.text)
                 for dp in self._dps:
                     cpu=data['response']['result']['resource-monitor']['data-processors'][dp]['second']['cpu-load-average']['entry']
-                    for i in  range(0,len(cpu)):
+                    for i in  range(0,1): #range(0,len(cpu))
                         #payload[ip][dp+':'+cpu[i]['coreid']]=max([int(value) for value in cpu[i]['value'].split(',')])
                         points['tags']['dsp']=dp
                         points['tags']['coreid']=i
