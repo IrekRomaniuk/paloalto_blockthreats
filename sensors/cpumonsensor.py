@@ -61,7 +61,7 @@ class PanCpuMonitorSensor(PollingSensor):
                         points['tags']['dsp']=dp
                         points['tags']['coreid']=i
                         points['fields'][self._val]=max([int(value) for value in cpu[i]['value'].split(',')])
-                        self._logger.debug('#### Payload: {}'.format(payload))
+                        self._logger.debug('#### Point: {}'.format(points))
                         payload[ip[0]].append(points)              
              
             self._logger.debug('#### Dispatching payload of type {} with number of {} points'.format(type(payload),len(payload[ip])))                               
