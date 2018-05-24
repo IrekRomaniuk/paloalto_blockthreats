@@ -36,6 +36,7 @@ class PanCpuMonitorSensor(PollingSensor):
     def poll(self):        
         self._logger.debug('#### PanCpuMonitorSensor dispatching trigger...')
         payload = {}
+        points = []
         payload['measurement']=self._mes
         payload['fields']={}
         ips = [str(ip) for ip in self._ips.split(',')]
@@ -58,8 +59,9 @@ class PanCpuMonitorSensor(PollingSensor):
                         payload['tags']['dsp']=dp
                         payload['tags']['coreid']=i
                         payload['fields'][self._val]=max([int(value) for value in cpu[i]['value'].split(',')])
-                        
-        self.sensor_service.dispatch(trigger="pan.cpu_mon_trigger", payload=payload)                
+                        points.add[payload]
+                                                
+        self.sensor_service.dispatch(trigger="pan.cpu_mon_trigger", payload=points)                
         #requests.get("https://hchk.io/")
              
 
