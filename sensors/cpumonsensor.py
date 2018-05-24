@@ -42,7 +42,7 @@ class PanCpuMonitorSensor(PollingSensor):
             requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             response = requests.get('https://' + ip + self._url + self._key, verify=False)
             if response.status_code == 200:
-                data = xmltodict.parse(response)
+                data = xmltodict.parse(response.text)
                 for dp in self._dps:
                     cpu=data['response']['result']['resource-monitor']['data-processors'][dp]['second']['cpu-load-average']['entry']
                     for i in  range(0,len(cpu)):
