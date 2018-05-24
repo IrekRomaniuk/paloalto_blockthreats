@@ -42,7 +42,7 @@ class PanCpuMonitorSensor(PollingSensor):
         self._logger.debug('#### Tags: {}'.format(ips))
         for ip in ips:
             points={}
-            payalod[ip]=[]
+            payload[ip]=[]
             points['measurement']=self._mes
             points['fields']={}
             ip = [str(elem) for elem in ip.split(':')]
