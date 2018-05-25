@@ -45,7 +45,7 @@ class PanCpuMonitorSensor(PollingSensor):
             points['fields']={}
             ip = [str(elem) for elem in ip.split(':')]
             self._logger.debug('#### Tag: {}'.format(ip))
-            payload['points']=[]
+            
             # ['1.1.1.1', 'pan1', 'DC1', '3']
             points['tags']= {"site": ip[2],"firewall": ip[1],"dsp": 99,"coreid": 99}
             # self._logger.debug('url: {}'.format('https://' + ip + self._url + self._key))
@@ -56,7 +56,8 @@ class PanCpuMonitorSensor(PollingSensor):
                 for dp in self._dps:
                     cpu=data['response']['result']['resource-monitor']['data-processors'][dp]['second']['cpu-load-average']['entry']
                     for i in  range(0,1): #range(0,len(cpu))
-                        self._logger.debug('#### dsp: {} coreid: {}'.format(dp, i))                        
+                        self._logger.debug('#### dsp: {} coreid: {}'.format(dp, i))  
+                        payload['points']=[]                      
                         points['tags']['dsp']=dp
                         points['tags']['coreid']=i
                         points['fields'][self._val]=max([int(value) for value in cpu[i]['value'].split(',')])

@@ -33,4 +33,5 @@ class influx_write(Action):
         # result=client.write_points(payload)
         client.close()
         # return result
+        return type(points)
 
