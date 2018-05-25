@@ -55,12 +55,14 @@ class PanCpuMonitorSensor(PollingSensor):
                 data = xmltodict.parse(response.text)
                 for dp in self._dps:
                     cpu=data['response']['result']['resource-monitor']['data-processors'][dp]['second']['cpu-load-average']['entry']
-                    for i in  range(0,1): #range(0,len(cpu))                        
+                    for i in  range(0,1): #range(0,len(cpu))
+                        self._logger.debug('#### dsp: {} coreid: {}'.format(dp, i))                        
                         points['tags']['dsp']=dp
                         points['tags']['coreid']=i
                         points['fields'][self._val]=max([int(value) for value in cpu[i]['value'].split(',')])
-                        self._logger.debug('#### Point: {}'.format(points))
-                        payload['points'].append(points)              
+                        self._logger.debug('#### Points: {}'.format(points))
+                        payload['points'].append(points)  
+                        self._logger.debug('#### Payload: {}'.format(payload['points']))            
              
             self._logger.debug('#### Dispatching payload of type {} with number of {} points'.format(type(payload),len(payload['points'])))                               
             self.sensor_service.dispatch(trigger="pan.cpu_mon_trigger", payload=payload)               
