@@ -8,4 +8,4 @@
     action:
         ref: "pan.influx_write"
         parameters:
-            payload: "{{trigger.points}}"
+            points: "{{trigger.points}}"
