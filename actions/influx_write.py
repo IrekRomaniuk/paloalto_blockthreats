@@ -29,9 +29,9 @@ class influx_write(Action):
         _base_url, _port = self.config['base_url'].split(":")
         client = InfluxDBClient(_base_url, _port, _user, _pass, _db)
         # print(_db,_user,_pass,_base_url, _port)
-        print(ast.literal_eval(points))
-        # result=client.write_points(payload)
+        # print(ast.literal_eval(points))
+        result=client.write_points(st.literal_eval(points))
         client.close()
-        # return result
-        return type(ast.literal_eval(points))
+        # return type(ast.literal_eval(points))
+        return result
 
