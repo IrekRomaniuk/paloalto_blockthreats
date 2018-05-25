@@ -1,5 +1,5 @@
 from influxdb import InfluxDBClient
-
+import ast
 from st2actions.runners.pythonrunner import Action
 
 json_test = [
@@ -29,9 +29,9 @@ class influx_write(Action):
         _base_url, _port = self.config['base_url'].split(":")
         client = InfluxDBClient(_base_url, _port, _user, _pass, _db)
         # print(_db,_user,_pass,_base_url, _port)
-        print(points)
+        print(ast.literal_eval(points))
         # result=client.write_points(payload)
         client.close()
         # return result
-        return type(points)
+        return type(ast.literal_eval(points))
 
