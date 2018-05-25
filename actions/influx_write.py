@@ -19,7 +19,7 @@ json_test = [
 
 class influx_write(Action):
        
-    def run(self, payload): #, tags
+    def run(self, firewall): #, tags
         """
         Example of payload
         """
@@ -29,7 +29,7 @@ class influx_write(Action):
         _base_url, _port = self.config['base_url'].split(":")
         client = InfluxDBClient(_base_url, _port, _user, _pass, _db)
         # print(_db,_user,_pass,_base_url, _port)
-        print(payload)
+        print(firewall)
         # result=client.write_points(payload)
         client.close()
         # return result
