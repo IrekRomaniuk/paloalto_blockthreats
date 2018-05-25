@@ -35,8 +35,7 @@ class PanCpuMonitorSensor(PollingSensor):
 
     def poll(self):        
         self._logger.debug('#### PanCpuMonitorSensor dispatching trigger...')
-        payload = {}
-        
+        payload = {}        
         ips = [str(ip) for ip in self._ips.split(',')]
         # ['1.1.1.1:pan1:DC1:3', '2.2.2.2:pan2:DC2:3', '3.3.3.3:pan', 'LAB:1']
         self._logger.debug('#### Tags: {}'.format(ips))
