@@ -5,7 +5,7 @@ description: "Run a query on InfluxDB"
 enabled: true
 entry_point: "influx_write.py"
 parameters:    
-    payload:
+    points:
         type: "object"
         description: "cpu values"
         required: true

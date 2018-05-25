@@ -45,7 +45,7 @@ class PanCpuMonitorSensor(PollingSensor):
             points['fields']={}
             ip = [str(elem) for elem in ip.split(':')]
             self._logger.debug('#### Tag: {}'.format(ip))
-            payload['firewall']=[]
+            payload['points']=[]
             # ['1.1.1.1', 'pan1', 'DC1', '3']
             points['tags']= {"site": ip[2],"firewall": ip[1],"dsp": 99,"coreid": 99}
             # self._logger.debug('url: {}'.format('https://' + ip + self._url + self._key))
@@ -60,9 +60,9 @@ class PanCpuMonitorSensor(PollingSensor):
                         points['tags']['coreid']=i
                         points['fields'][self._val]=max([int(value) for value in cpu[i]['value'].split(',')])
                         self._logger.debug('#### Point: {}'.format(points))
-                        payload['firewall'].append(points)              
+                        payload['points'].append(points)              
              
-            self._logger.debug('#### Dispatching payload of type {} with number of {} points'.format(type(payload),len(payload['firewall'])))                               
+            self._logger.debug('#### Dispatching payload of type {} with number of {} points'.format(type(payload),len(payload['points'])))                               
             self.sensor_service.dispatch(trigger="pan.cpu_mon_trigger", payload=payload)               
         #requests.get("https://hchk.io/")
              
