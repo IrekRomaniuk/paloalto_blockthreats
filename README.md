@@ -32,3 +32,7 @@ See my blog post [here](https://medium.com/@IrekRomaniuk).
 Currently, the following actions listed below are supported:
 - register IP to DAG (Dynamic Address Group)
 
+## Sensors
+
+- monitor CPU
+- count SSL decryption sessions
