@@ -2,7 +2,7 @@
 class_name: "SslDecryptCountSensor"
 entry_point: "ssldecryptcount.py"
 description: "Sensor counting Paloalto ssl decryption sessions"
-poll_interval: 60
+poll_interval: 59
 trigger_types:
   -
     name: "decrypt_count_trigger"
