@@ -5,7 +5,7 @@ description: "Sensor counting Paloalto ssl decryption sessions"
 poll_interval: 60
 trigger_types:
   -
-    name: "ssl_decrypt_count_trigger"
+    name: "decrypt_count_trigger"
     description: "count PAN ssl decrypt sessions"
     payload_schema:
       type: "object" 

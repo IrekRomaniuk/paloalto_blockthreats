@@ -38,7 +38,8 @@ class SslDecryptCountSensor(PollingSensor):
         self._dps= ['dp0','dp1','dp2'] 
         # self._mes= self._config['measurement']   
         self._mes= "ssl-decrypt_count"   
-        self._val= self._config['value']  
+        # self._val= self._config['value']  
+        self._val= "value"
 
 
     def poll(self):        
@@ -70,7 +71,7 @@ class SslDecryptCountSensor(PollingSensor):
                         self._logger.debug('#### Payload: {}'.format(payload['points']))            
              
             self._logger.debug('#### Dispatching payload of type {} with number of {} points'.format(type(payload),len(payload['points'])))                               
-            self.sensor_service.dispatch(trigger="pan.ssl_decrypt_count_trigger", payload=payload)               
+            self.sensor_service.dispatch(trigger="pan.decrypt_count_trigger", payload=payload)               
         #requests.get("https://hchk.io/")
              
 
