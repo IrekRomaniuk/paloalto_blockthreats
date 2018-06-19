@@ -1,6 +1,9 @@
 # Palo Alto firewall Pack
 
-Block threats on **Palo Alto Networks (_PAN_)** firewalls. Pack is using PAN **HTTP server profiles** (webhooks) which are available in PAN-OS version 8+
+- Block threats on **Palo Alto Networks (_PAN_)** firewalls. Pack is using PAN **HTTP server profiles** (webhooks) which are available in PAN-OS version 8+
+- Monitor CPU
+- Count SSL decrypt sessions
+
 ## Configuration
 
 Copy the example configuration in **paloalto.yaml.example** to */opt/stackstorm/configs/paloalto.yaml* and edit as required.
@@ -36,8 +39,9 @@ See my blog post [here](https://medium.com/@IrekRomaniuk).
 
 Currently, the following actions listed below are supported:
 - register IP to DAG (Dynamic Address Group)
+- write points to Influxdb
 
 ## Sensors
 
 - monitor CPU
-- count SSL decryption sessions
+- count SSL decrypt sessions
