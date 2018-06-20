@@ -56,11 +56,12 @@ class SslDecryptCountSensor(PollingSensor):
             requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
             self._logger.debug('#### Request: {}'.format('https://' + ip[0] + self._url + self._key))
             response = requests.get('https://' + ip[0] + self._url + self._key, verify=False)
-            self._logger.debug('#### Response: {}'.format(response))
+            self._logger.debug('#### Response: {}'.format(response.text))
             if response.status_code == 200:
                 data = xmltodict.parse(response.text)
                 for dp in self._dps:
                     ssl=data['response']['result']['member']
+                    self._logger.debug('#### Data: {}'.format(ssl))
                     for i in  range(0,len(ssl)): #range(0,len(ssl))
                         # self._logger.debug('#### dsp: {} coreid: {}'.format(dp, i))
                         points={}
