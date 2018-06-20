@@ -15,7 +15,7 @@ class SslDecryptCountSensor(PollingSensor):
     * self._poll_interval
         - indicates the interval between two successive poll() calls.
     TESTING:  
-    curl -k "https://1.1.1.1/esp/restapi/esp?type=op&cmd=<show><session><all><filter><ssl-decrypt>yes</ssl-decrypt><count>yes</count></filter></all></session></show>&key="  
+    curl -kg "https://10.34.2.20/esp/restapi.esp?type=op&cmd=<show><session><all><filter><ssl-decrypt>yes</ssl-decrypt><count>yes</count></filter></all></session></show>&key="
     op: success
     <response status="success"><result>
         <member>73</member>
@@ -33,7 +33,7 @@ class SslDecryptCountSensor(PollingSensor):
     def setup(self):
         self._key = self._config['api_key'] # or None
         # self._url = self._config['url']
-        self._url = "/esp?type=op&cmd=<show><session><all><filter><ssl-decrypt>yes</ssl-decrypt><count>yes</count></filter></all></session></show>&key="
+        self._url = "/esp/restapi.esp?type=op&cmd=<show><session><all><filter><ssl-decrypt>yes</ssl-decrypt><count>yes</count></filter></all></session></show>&key="
         self._ips = self._config['ips'] 
         self._dps= ['dp0','dp1','dp2'] 
         # self._mes= self._config['measurement']   
