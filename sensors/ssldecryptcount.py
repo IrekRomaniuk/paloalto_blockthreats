@@ -63,12 +63,12 @@ class SslDecryptCountSensor(PollingSensor):
                     ssl=data['response']['result']['member']
                     self._logger.debug('#### Data: {}'.format(ssl))
                     for i in  range(0,len(ssl)): #range(0,len(ssl))
-                        # self._logger.debug('#### dsp: {} coreid: {}'.format(dp, i))
+                        # self._logger.debug('#### dsp: {}'.format(i))
                         points={}
                         points['measurement']=self._mes
                         points['fields']={}                           
                         points['tags']= {"site": ip[2],"firewall": ip[1],"dsp": i}                     
-                        points['fields'][self._val]=max([int(value) for value in ssl[i]['value'].split(',')])
+                        points['fields'][self._val]=int(ssl[i])
                         self._logger.debug('#### Points: {}'.format(points))
                         payload['points'].append(points)  
                         self._logger.debug('#### Payload: {}'.format(payload['points']))            
