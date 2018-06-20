@@ -1,0 +1,11 @@
+---
+    name: "ssl_to_influx"
+    pack: "pan"
+    description: "Write ssl-decrypt count to Influxdb"
+    enabled: true
+    trigger:
+        type: "pan.decrypt_count_trigger"     
+    action:
+        ref: "pan.influx_write"
+        parameters:
+            points: "{{trigger.points}}"
