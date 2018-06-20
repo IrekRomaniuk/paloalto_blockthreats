@@ -2,7 +2,7 @@
     name: "dag_update_fw2"
     pack: "pan"
     description: "update DAG for firewall 3.3.3.3 - no criteria"
-    enabled: true
+    enabled: false
 
     trigger:
         type: "core.st2.webhook"

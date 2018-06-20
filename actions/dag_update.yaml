@@ -2,7 +2,7 @@
 name: "dag_update"
 runner_type: "python-script"
 description: "update DAG: dynamic address group"
-enabled: true
+enabled: false
 entry_point: "dag_update.py"
 parameters:
     ip:
