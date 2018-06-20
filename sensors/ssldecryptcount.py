@@ -67,7 +67,7 @@ class SslDecryptCountSensor(PollingSensor):
                         points={}
                         points['measurement']=self._mes
                         points['fields']={}                           
-                        points['tags']= {"site": ip[2],"firewall": ip[1],"dsp": dp,"coreid": i}                     
+                        points['tags']= {"site": ip[2],"firewall": ip[1],"dsp": i}                     
                         points['fields'][self._val]=max([int(value) for value in ssl[i]['value'].split(',')])
                         self._logger.debug('#### Points: {}'.format(points))
                         payload['points'].append(points)  
