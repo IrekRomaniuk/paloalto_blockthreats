@@ -9,3 +9,4 @@
   username: "firewall"    
   password: "password"  
   db: "firewalls"
+  model: "5200"

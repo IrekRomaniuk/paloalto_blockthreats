@@ -28,7 +28,11 @@ class PanCpuMonitorSensor(PollingSensor):
         self._key = self._config['api_key'] # or None
         self._url = self._config['url']
         self._ips = self._config['ips'] 
-        self._dps= ['dp0','dp1','dp2'] 
+        self._model = self._config['model'] 
+        if self._model == '5000':
+            self._dps= ['dp0','dp1','dp2'] # 5060
+        else  
+            self._dps= ['s1dp1','s1dp2'] # 5250
         self._mes= self._config['measurement']      
         self._val= self._config['value']  
 
@@ -49,7 +53,8 @@ class PanCpuMonitorSensor(PollingSensor):
             if response.status_code == 200:
                 data = xmltodict.parse(response.text)
                 for dp in self._dps:
-                    cpu=data['response']['result']['resource-monitor']['data-processors'][dp]['second']['cpu-load-average']['entry']
+                    #cpu=data['response']['result']['resource-monitor']['data-processors'][dp]['second']['cpu-load-average']['entry'] #5060
+                    cpu=data['response']['result']['resource-monitor']['data-processors'][dp]['second']['cpu-load-average']['entry'] #5250
                     for i in  range(0,len(cpu)): #range(0,len(cpu))
                         # self._logger.debug('#### dsp: {} coreid: {}'.format(dp, i))
                         points={}
