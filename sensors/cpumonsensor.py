@@ -31,7 +31,7 @@ class PanCpuMonitorSensor(PollingSensor):
         self._model = self._config['model'] 
         if self._model == '5000':
             self._dps= ['dp0','dp1','dp2'] # 5060
-        else  
+        else:  
             self._dps= ['s1dp1','s1dp2'] # 5250
         self._mes= self._config['measurement']      
         self._val= self._config['value']  

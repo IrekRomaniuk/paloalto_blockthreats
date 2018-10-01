@@ -3,7 +3,7 @@
   tag: "tag name"
   measurement: "cpu_load"
   value: "cpu_load"
-  ips: "1.1.1.1:pan1:DC1:3,2.2.2.2:pan2:DC2:3,,3.3.3.3:lab:LAB:1"
+  ips: "1.1.1.1:pan1:DC1:2,2.2.2.2:pan2:DC2:3,,3.3.3.3:lab:LAB:1"
   url: "/esp/restapi.esp?type=op&cmd=<show><running><resource-monitor><second></second></resource-monitor></running></show>&key="
   base_url: "3.3.3.3:8086"
   username: "firewall"    
