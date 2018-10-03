@@ -17,12 +17,15 @@ Example configuration:
 ---
   api_key: "palo_alto_api_key"
   tag: "st2"
-  ips: "1.1.1.1:pan1:DC1:3,2.2.2.2:pan2:DC2:3,,3.3.3.3:lab:LAB:1"
+  ips: "1.1.1.1:pan1:DC1:5000,2.2.2.2:pan2:DC2:5200,,3.3.3.3:lab:LAB:200"
   base_url: "3.3.3.3:8086"
   username: "firewall"    
   password: "password"  
   db: "firewalls"
 ```
+
+where 1.1.1.1 is IP addresses, pan1 is name of the firewall, DC1 is name of site, and 5000 is PAN model (currently only 5000 and 5200 supported)
+
 ## Using the pack
 
 Configure http webhook on PAN following  [PAN-OS 8.0 documentation](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-server-profiles-http)
